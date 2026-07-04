@@ -1,6 +1,6 @@
 // Configura aquí la fecha exacta de su aniversario (Año, Mes [0-11], Día, Hora)
 // Nota: Enero es 0, Febrero es 1, Marzo es 2... de ahí en adelante.
-const fechaInicio = new Date(2026, 4, 4, 20, 0, 0); 
+const fechaInicio = new Date(2026, 3, 4, 20, 0, 0); 
 
 function actualizarContador() {
     const ahora = new Date();
