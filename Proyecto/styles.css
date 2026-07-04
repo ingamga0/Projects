@@ -208,3 +208,19 @@ body {
         transform: translateY(0);
     }
 }
+/* ==========================================================================
+   6. ESTILOS PARA LAS IMÁGENES
+   ========================================================================== */
+.timeline-img {
+    width: 100%;             /* Se adapta al ancho de la tarjeta */
+    max-height: 250px;       /* Controla la altura máxima para que no ocupe toda la pantalla */
+    object-fit: cover;       /* Recorta la imagen de forma inteligente para que no se deforme */
+    border-radius: 8px;      /* Bordes redondeados sutiles */
+    margin-top: 12px;        /* Espaciado superior para que no choque con el texto */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: transform 0.3s ease;
+}
+
+.timeline-img:hover {
+    transform: scale(1.02);  /* Efecto de zoom muy sutil al pasar el cursor */
+}
