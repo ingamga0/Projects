@@ -228,15 +228,18 @@ body {
    7. /* ==========================================================================
    6. ESTILOS DEL CARRUSEL DE FOTOS (RESPONSIVO Y OPTIMIZADO)
    ========================================================================== */
+/* ==========================================================================
+   6. ESTILOS DEL CARRUSEL DE FOTOS (FOTOS COMPLETAS Y RESPONSIVAS)
+   ========================================================================== */
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 450px;      /* 💡 LIMITA EL ANCHO: Evita que la foto se expanda demasiado en PC */
+    max-width: 450px;      /* LIMITA EL ANCHO: Evita que la foto se expanda demasiado en PC */
     margin: 16px auto 0 auto; /* Centra el carrusel horizontalmente */
     border-radius: 12px;
     overflow: hidden;      /* Oculta las fotos que no están activas */
     box-shadow: var(--shadow);
-    background-color: #000; /* Fondo negro por si las fotos tienen orientaciones distintas */
+    background-color: rgba(0, 0, 0, 0.9); /* 💡 FONDO NEGRO: Fondo sólido para que las barras se vean elegantes si la foto no lo cubre todo */
 }
 
 .carousel-track {
@@ -248,8 +251,8 @@ body {
 .carousel-track img {
     width: 100%;
     min-width: 100%;       /* Fuerza a cada imagen a ocupar exactamente el contenedor */
-    height: 300px;         /* 💡 ALTURA FIJA: Estandariza el tamaño de todas las fotos */
-    object-fit: cover;     /* 🚀 MAGIA RESPONSIVA: Recorta y centra la foto sin deformarla (no se estira) */
+    height: 350px;         /* ALTURA FIJA ESTÁNDAR: Todas las fotos se adaptan a esta altura, puedes subirla a 400px si prefieres */
+    object-fit: contain;   /* 🚀 LA MAGIA: Muestra la foto ENTERA y la escala para que quepa, sin recortar nada. */
     object-position: center;
     user-select: none;
     pointer-events: none;
@@ -258,7 +261,7 @@ body {
 /* Ajuste opcional para pantallas muy pequeñas (teléfonos antiguos) */
 @media (max-width: 360px) {
     .carousel-track img {
-        height: 240px;     /* Reduce un poco la altura en pantallas mini para mejor proporción */
+        height: 280px;     /* Reduce un poco la altura en pantallas mini para mejor proporción */
     }
 }
 
@@ -288,4 +291,3 @@ body {
 
 .carousel-btn.prev { left: 8px; }
 .carousel-btn.next { right: 8px; }
-.carousel-btn.next { right: 10px; }
