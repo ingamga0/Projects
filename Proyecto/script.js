@@ -47,6 +47,24 @@ function moverCarrusel(trackId, direccion) {
     const desplazamiento = indicesCarrusel[trackId] * -100;
     track.style.transform = `translateX(${desplazamiento}%)`;
 }
+// Funciones para la carta del Girasol
+function abrirCarta() {
+    const modal = document.getElementById("card-modal");
+    modal.style.display = "flex";
+}
+
+function cerrarCarta() {
+    const modal = document.getElementById("card-modal");
+    modal.style.display = "none";
+}
+
+// Cerrar la carta automáticamente si ella hace clic fuera del recuadro blanco
+window.onclick = function(event) {
+    const modal = document.getElementById("card-modal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 // Ejecutar cada segundo
 setInterval(actualizarContador, 1000);
 actualizarContador();
