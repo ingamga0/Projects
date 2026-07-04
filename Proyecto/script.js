@@ -20,7 +20,33 @@ function actualizarContador() {
         <div class="time-box"><span>${segundos}</span> segundos</div>
     `;
 }
+// Objeto global para mantener el estado del índice de cada carrusel por separado
+const indicesCarrusel = {};
 
+function moverCarrusel(trackId, direccion) {
+    const track = document.getElementById(trackId);
+    const imagenes = track.querySelectorAll('img');
+    const totalImagenes = imagenes.length;
+
+    // Inicializar el índice si es la primera vez que se interactúa con este carrusel
+    if (indicesCarrusel[trackId] === undefined) {
+        indicesCarrusel[trackId] = 0;
+    }
+
+    // Actualizar el índice lógico
+    indicesCarrusel[trackId] += direccion;
+
+    // Controlar comportamiento infinito / cíclico
+    if (indicesCarrusel[trackId] >= totalImagenes) {
+        indicesCarrusel[trackId] = 0; // Vuelve al inicio
+    } else if (indicesCarrusel[trackId] < 0) {
+        indicesCarrusel[trackId] = totalImagenes - 1; // Va al final
+    }
+
+    // Calcular el porcentaje exacto de desplazamiento en X
+    const desplazamiento = indicesCarrusel[trackId] * -100;
+    track.style.transform = `translateX(${desplazamiento}%)`;
+}
 // Ejecutar cada segundo
 setInterval(actualizarContador, 1000);
 actualizarContador();
